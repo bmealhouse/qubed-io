@@ -19,6 +19,7 @@ let PrimaryMessage = React.createClass({
   render: function() {
     return (
       <div className="primary-message">
+        {/*
         <div className="logo">
           <svg version="1.1" id="logo" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 100 100">
             <g id="outline">
@@ -42,6 +43,7 @@ let PrimaryMessage = React.createClass({
         <div className="slogan tk-fira-sans-2">
           <h1>Simple, elegant, &amp; functional JavaScript development. Done right the first time.</h1>
         </div>
+        */}
       </div>
     );
   }
@@ -62,28 +64,50 @@ let App = React.createClass({
 });
 
 
+// let stageNode = document.getElementById("stage");
+//
+// bonsai.setup({
+//   runnerContext: bonsai.IframeRunnerContext
+// }).run(stageNode, "movies.js", {
+//   width: window.innerWidth,
+//   height: 563,
+//   // framerate: 60
+// });
 
-let stageNode = document.getElementById("stage");
-
-bonsai.setup({
-  runnerContext: bonsai.IframeRunnerContext
-}).run(stageNode, "movies.js", {
-  width: window.innerWidth,
-  height: 563,
-  // framerate: 60
-});
 
 let appNode = document.getElementById("app");
 React.render(<App/>, appNode);
 
-// let stage = new PIXI.Stage(0x66FF99);
-// let renderer = PIXI.autoDetectRenderer(window.innerWidth, 563);
-// // document.body.appendChild(renderer.view);
-// document.body.insertBefore(renderer.view, appNode);
-//
-// requestAnimationFrame(animate);
-//
-// function animate() {
-//   renderer.render(stage);
-//   requestAnimationFrame(animate);
-// }
+let stage = new PIXI.Container();
+
+let width = window.innerWidth;
+let height = 563;
+let options = { backgroundColor: 0x373837 };
+
+let renderer = PIXI.autoDetectRenderer(width, height, options);
+document.body.insertBefore(renderer.view, appNode);
+
+/********************/
+
+let state = {
+  particles: [],
+  stage: {},
+  tickCount: 0
+};
+
+function setState() {
+  state.stage.width = renderer.width;
+  state.stage.height = renderer.height;
+  state.stage.origin = {
+    x: 285,
+    y: 230
+  };
+}
+
+function animate() {
+  renderer.render(stage);
+  requestAnimationFrame(animate);
+}
+
+setState();
+requestAnimationFrame(animate);
