@@ -1,9 +1,12 @@
 module.exports = {
 
-  entry: './src/app/app.js',
+  entry: {
+    app: './src/app/app.js',
+    movies: './src/app/movies/galaxy.js'
+  },
 
   output: {
-    filename: 'app.js'
+    filename: '[name].js'
   },
 
   module: {
@@ -14,7 +17,7 @@ module.exports = {
 
   devServer: {
     contentBase: './src',
-    // inline: true
+    inline: true
   }
 
 };

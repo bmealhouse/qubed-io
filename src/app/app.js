@@ -1,4 +1,5 @@
 import React from "react";
+// import bonsai from "bonsai";
 
 /** Used for React dev tools */
 window.React = React;
@@ -19,7 +20,7 @@ let PrimaryMessage = React.createClass({
     return (
       <div className="primary-message">
         <div className="logo">
-          <svg version="1.1" id="logo" x="0px" y="0px" width="35%" height="35%" viewBox="0 0 100 100">
+          <svg version="1.1" id="logo" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 100 100">
             <g id="outline">
               <polygon id="top" fill="#676767" points="50.7,11.6 50.7,11.6 25.4,26.2 32.5,30.3 50.7,19.7 50.7,19.7 69,30.3 76,26.2"/>
               <polygon id="bottom" fill="#4D4E4E" points="76,55.4 76,26.2 69,30.3 69,51.4 50.7,61.9 32.4,51.4 32.5,30.3 25.4,26.2 25.4,55.4 50.7,70 50.7,70 50.7,70 50.7,70 50.7,70 76,55.4 76,55.5 76,55.4 76,55.4"/>
@@ -60,4 +61,29 @@ let App = React.createClass({
 
 });
 
-React.render(<App/>, document.getElementById("app"));
+
+
+let stageNode = document.getElementById("stage");
+
+bonsai.setup({
+  runnerContext: bonsai.IframeRunnerContext
+}).run(stageNode, "movies.js", {
+  width: window.innerWidth,
+  height: 563,
+  // framerate: 60
+});
+
+let appNode = document.getElementById("app");
+React.render(<App/>, appNode);
+
+// let stage = new PIXI.Stage(0x66FF99);
+// let renderer = PIXI.autoDetectRenderer(window.innerWidth, 563);
+// // document.body.appendChild(renderer.view);
+// document.body.insertBefore(renderer.view, appNode);
+//
+// requestAnimationFrame(animate);
+//
+// function animate() {
+//   renderer.render(stage);
+//   requestAnimationFrame(animate);
+// }
