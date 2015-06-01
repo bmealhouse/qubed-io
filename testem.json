@@ -1,0 +1,13 @@
+{
+  "framework": "mocha",
+  "src_files": [
+    "./src/app/pixi/*.js",
+    "./src/tests/pixi/*.js"
+  ],
+  "serve_files": [
+    "./lib/app/pixi/*.js",
+    "./lib/tests/pixi/*.js"
+  ],
+  "before_tests": "./node_modules/.bin/babel src --out-dir lib --source-maps",
+  "on_exit": "rm -rf lib/"
+}
