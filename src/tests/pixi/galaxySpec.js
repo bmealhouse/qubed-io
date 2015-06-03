@@ -1,7 +1,7 @@
-var assert = require("assert");
+var assert = chai.assert;
 
 describe("galaxySpec.js", () => {
-  it("should run a test", () => {
-    assert.equal(true, true);
-  })
+
+  it("should init ");
+  
 });
