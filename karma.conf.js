@@ -2,17 +2,11 @@ module.exports = function(config) {
   config.set({
 
     browsers: ["PhantomJS"],
+    files: [{ pattern: "tests.webpack.js", watched: false }],
     frameworks: ["mocha", "chai-sinon"],
-    reporters: ["narrow"],
-
-    osxReporter: {
-      notificationMode: 'failOnly'
-    },
-
-    preprocessors: {
-      "src/app/pixi/*.js": ["webpack"],
-      "src/tests/pixi/*.js": ["webpack"]
-    },
+    osxReporter: { notificationMode: "failOnly" },
+    preprocessors: { "tests.webpack.js": ["webpack"] },
+    reporters: ["narrow", "osx"],
 
     // client: {
     //   mocha: {
@@ -28,22 +22,22 @@ module.exports = function(config) {
 
       // webpack configuration
       module: {
-        loaders: [
-          { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
-        ]
-      }
+        loaders: [{
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader'
+        }]
+      },
+      // resolve: {
+      //   extensions: ['', '.js']
+      // }
     },
 
     webpackMiddleware: {
       // webpack-dev-middleware configuration
       // i. e.
       noInfo: true
-    },
-
-    files: [
-      "src/app/pixi/*.js",
-      "src/tests/pixi/*.js"
-    ]
+    }
 
   });
 };

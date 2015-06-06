@@ -1,7 +1,7 @@
 let galaxy = {
 
-  // init: function init() {
-  // }
+  init: function init() {
+  }
 
 };
 
