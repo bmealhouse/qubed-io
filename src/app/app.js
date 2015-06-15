@@ -63,198 +63,25 @@ let App = React.createClass({
 
 });
 
-
-// let stageNode = document.getElementById("stage");
-//
-// bonsai.setup({
-//   runnerContext: bonsai.IframeRunnerContext
-// }).run(stageNode, "movies.js", {
-//   width: window.innerWidth,
-//   height: 563,
-//   // framerate: 60
-// });
-
-
 let appNode = document.getElementById("app");
 React.render(<App/>, appNode);
 
-// let stage = new PIXI.Container();
+import galaxy from "./pixi/galaxy";
 
-let width = window.innerWidth;
-let height = 563;
-let options = {
-  antialias: true,
-  backgroundColor: 0x373837
+const config = {
+  width: window.innerWidth,
+  height: 563,
+  origin: { x: 285, y: 230 },
+  resolution: window.devicePixelRatio
 };
 
-// let renderer = PIXI.autoDetectRenderer(width, height, options);
-// document.body.insertBefore(renderer.view, appNode);
-
-/********************/
-
-let state = {
-  particles: [],
-  stage: {},
-  tickCount: 0
-};
-
-const CREATE_INTERVAL = 4;
-const MAX_DEGREES = 360;
-const RADIANS = 2 * Math.PI;
-const PARTICLE = {
-  MAX_ROTATION: 2,
-  MIN_SIZE: 5,
-  MAX_SIZE: 15,
-  MAX_SPEED: 4,
-  OPACITY: 0.5,
-  SIDES: 3
-};
-
-let calcx = (angle) => Math.cos(angle * Math.PI / 180);
-let calcy = (angle) => Math.sin(angle * Math.PI / 180);
-let radians = (degrees) => (degrees / MAX_DEGREES) * RADIANS;
-
-function setState() {
-  state.stage.width = renderer.width;
-  state.stage.height = renderer.height;
-  state.stage.origin = {
-    x: 285,
-    y: 230
-  };
-}
-
-function random(min, max) {
-  if (!max) {
-    max = min;
-    min = 0;
-  }
-
-  return min + Math.floor(Math.random() * (max - min));
-}
-
-function createColor() {
-  let colors = [
-    "#666666", "#6D6E70", "#58585B",
-    "#A5CE44", "#8CC63E", "#B9D54E"
-  ];
-
-  return colors[random(colors.length)];
-}
-
-function createParticle() {
-  let particle = {
-
-    x: state.stage.origin.x,
-    y: state.stage.origin.y,
-
-    angle: random(MAX_DEGREES),
-    radius: random(PARTICLE.MIN_SIZE, PARTICLE.MAX_SIZE),
-    rotation: random(MAX_DEGREES),
-
-    movementSpeed: random(1, PARTICLE.MAX_SPEED),
-    rotationSpeed: random(~PARTICLE.MAX_ROTATION, PARTICLE.MAX_ROTATION)
-
-  };
-
-  // this.moveTo(0, -radius);
-  //   for (var i = 1, current; i &lt; sides; i++) {
-  //     current = PI2 * i / sides;
-  //     this.lineTo(sin(current) * radius, -cos(current) * radius);
-  //   }
-  //   this.closePath();
-
-  var pathData = [];
-  var PI2 = Math.PI*2;
-  var sin = Math.sin;
-  var cos = Math.cos;
-
-  // pathData.push(0, -particle.radius);
-  // for (var i = 1, current; i < 3; i++) {
-  //   current = PI2 * i / 3;
-  //   pathData.push(sin(current) * particle.radius, -cos(current) * particle.radius);
-  // }
-
-  var graphics = new PIXI.Graphics();
-  stage.addChild(graphics);
-
-  graphics.position.x = 100;
-  graphics.position.y = 100;
-
-  graphics.lineStyle(1, 0xff0000, 1); // width, color, alpha
-  graphics.beginFill(0xffffff, 1); // color, alpha
-
-  graphics.moveTo(0, -particle.radius);
-  for (var i = 1, current; i < 3; i++) {
-    current = PI2 * i / 3;
-    graphics.lineTo(sin(current) * particle.radius, -cos(current) * particle.radius);
-  }
-  // graphics.drawPolygon(pathData);
-  // graphics.endFill();
-
-
-  // particle.instance = Path.polygon(
-  //   particle.x, particle.y,
-  //   particle.radius, PARTICLE.SIDES
-  // );
-  //
-  // particle.instance.attr({
-  //   fillColor: createColor(),
-  //   opacity: PARTICLE.OPACITY,
-  //   rotation: radians(particle.rotation)
-  // });
-
-  return particle;
-}
-
-function animate2() {
-  // let outOfBounds = (particle) =>
-  //   particle.x < 0 || particle.x > state.stage.width ||
-  //   particle.y < 0 || particle.y > state.stage.height;
-  //
-  // if (state.tickCount % CREATE_INTERVAL === 0) {
-    let particle = createParticle();
-    console.log(particle);
-
-  //   particle.instance.addTo(stage);
-  //   state.particles.push(particle);
-  // }
-  //
-  // for (let i = 0; i < state.particles.length; i += 1) {
-  //   state.tickCount += 1;
-  //
-  //   let particle = state.particles[i];
-  //
-  //   if (outOfBounds(particle)) {
-  //     particle.instance.remove();
-  //     state.particles.splice(i, 1);
-  //     continue;
-  //   }
-  //
-  //   particle.x += particle.movementSpeed * calcx(particle.angle);
-  //   particle.instance.attr("x", particle.x);
-  //
-  //   particle.y += particle.movementSpeed * calcy(particle.angle);
-  //   particle.instance.attr("y", particle.y);
-  //
-  //   particle.rotation += particle.rotationSpeed;
-  //   particle.instance.attr("rotation", radians(particle.rotation));
-  // }
-
-  renderer.render(stage);
-  //requestAnimationFrame(animate);
-}
-
-// setState();
-// requestAnimationFrame(animate);
+galaxy.init(config);
 
 var renderer = PIXI.autoDetectRenderer(800, 600, { antialias: true });
-document.body.appendChild(renderer.view);
+// document.body.appendChild(renderer.view);
 
 // create the root of the scene graph
 var stage = new PIXI.Container();
-
-stage.interactive = true;
-
 var graphics = new PIXI.Graphics();
 
 // set a fill and line style
@@ -271,86 +98,55 @@ graphics.lineTo(50, 50);
 graphics.endFill();
 
 // set a fill and line style again
-graphics.lineStyle(10, 0xFF0000, 0.8);
-graphics.beginFill(0xFF700B, 1);
+// graphics.lineStyle(10, 0xFF0000, 0.8);
+// graphics.beginFill(0xFF700B, 1);
 
 // draw a second shape
-graphics.moveTo(210,300);
-graphics.lineTo(450,320);
-graphics.lineTo(570,350);
-graphics.quadraticCurveTo(600, 0, 480,100);
-graphics.lineTo(330,120);
-graphics.lineTo(410,200);
-graphics.lineTo(210,300);
-graphics.endFill();
+// graphics.moveTo(210,300);
+// graphics.lineTo(450,320);
+// graphics.lineTo(570,350);
+// graphics.quadraticCurveTo(600, 0, 480,100);
+// graphics.lineTo(330,120);
+// graphics.lineTo(410,200);
+// graphics.lineTo(210,300);
+// graphics.endFill();
 
 // draw a rectangle
-graphics.lineStyle(2, 0x0000FF, 1);
-graphics.drawRect(50, 250, 100, 100);
-
-// draw a circle
 graphics.lineStyle(0);
-graphics.beginFill(0xFFFF0B, 0.5);
-graphics.drawCircle(470, 200,100);
-graphics.endFill();
-
-graphics.lineStyle(20, 0x33FF00);
-graphics.moveTo(30,30);
-graphics.lineTo(600, 300);
+graphics.beginFill(0x0000FF, 1);
+//graphics.drawRect(50, 250, 100, 100);
 
 
-let particle = {
+let point = 2;
+let position;
 
-  // x: state.stage.origin.x,
-  // y: state.stage.origin.y,
+const PI2 = Math.PI * 2;
 
-  angle: random(MAX_DEGREES),
-  radius: random(PARTICLE.MIN_SIZE, PARTICLE.MAX_SIZE),
-  rotation: random(MAX_DEGREES),
+graphics.position.x = 100;
+graphics.position.y = 100;
+graphics.moveTo(0, -20);
 
-  movementSpeed: random(1, PARTICLE.MAX_SPEED),
-  rotationSpeed: random(~PARTICLE.MAX_ROTATION, PARTICLE.MAX_ROTATION)
+while (point) {
+  position = PI2 * point / 3;
 
-};
+  graphics.lineTo(
+    Math.sin(position) * 20,
+    -Math.cos(position) * 20
+  );
 
-// this.moveTo(0, -radius);
-//   for (var i = 1, current; i &lt; sides; i++) {
-//     current = PI2 * i / sides;
-//     this.lineTo(sin(current) * radius, -cos(current) * radius);
-//   }
-//   this.closePath();
-
-var pathData = [];
-var PI2 = Math.PI*2;
-var sin = Math.sin;
-var cos = Math.cos;
-
-// pathData.push(0, -particle.radius);
-// for (var i = 1, current; i < 3; i++) {
-//   current = PI2 * i / 3;
-//   pathData.push(sin(current) * particle.radius, -cos(current) * particle.radius);
-// }
-
-var test = new PIXI.Graphics();
-stage.addChild(test);
-
-test.position.x = 500;
-test.position.y = 500;
-test.rotation = 20;
-
-test.lineStyle(1, 0xff0000, 1); // width, color, alpha
-test.beginFill(0xffffff, 1); // color, alpha
-
-test.moveTo(0, -particle.radius);
-for (var i = 1, current; i < 3; i++) {
-  current = PI2 * i / 3;
-  test.lineTo(sin(current) * particle.radius, -cos(current) * particle.radius);
+  point -= 1;
 }
 
-test.endFill();
+// draw a circle
+// graphics.lineStyle(0);
+// graphics.beginFill(0xFFFF0B, 0.5);
+// graphics.drawCircle(470, 200,100);
+// graphics.endFill();
 
-test.clear();
-// test.destroy();
+// graphics.lineStyle(20, 0x33FF00);
+// graphics.moveTo(30,30);
+// graphics.lineTo(600, 300);
+
 
 stage.addChild(graphics);
 
@@ -362,18 +158,6 @@ thing.position.y = 380/2;
 
 var count = 0;
 
-// Just click on the stage to draw random lines
-stage.on('click', onClick);
-stage.on('tap', onClick);
-
-function onClick()
-{
-    graphics.lineStyle(Math.random() * 30, Math.random() * 0xFFFFFF, 1);
-    graphics.moveTo(Math.random() * 620,Math.random() * 380);
-    graphics.bezierCurveTo(Math.random() * 620,Math.random() * 380,
-                            Math.random() * 620,Math.random() * 380,
-                            Math.random() * 620,Math.random() * 380);
-}
 // run the render loop
 animate();
 
