@@ -30,6 +30,7 @@ export default class Triangle {
 
   release() {
     this.active = false;
+    this.ref.clear();
     return this;
   }
 

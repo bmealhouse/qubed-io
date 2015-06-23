@@ -7,10 +7,7 @@ const tickInterval = 4;
 const galaxy = {
   init: (renderer, state) => {
 
-    const allocateTriangle = (triangle) => {
-      triangle.allocate(state);
-      renderer.addChild(triangle);
-    };
+    const allocateTriangle = triangle => triangle.allocate(state);
 
     const createTriangle = () => {
       const triangle = new Triangle(state);
@@ -30,18 +27,13 @@ const galaxy = {
       triangle.x / state.scale > state.width / state.scale ||
       triangle.y / state.scale > state.height / state.scale;
 
-    const releaseTriangle = (triangle) => {
-      triangle.release();
-      renderer.removeChild(triangle);
-    };
-
+    const releaseTriangle = triangle => triangle.release();
     const releaseTriangles = R.compose(
       R.map(R.ifElse(R.isEmpty, R.identity, releaseTriangle)),
       R.filter(outOfBounds)
     );
 
     const updateTriangle = triangle => triangle.update();
-
     const updateTriangles = R.compose(
       R.map(R.ifElse(R.isEmpty, R.identity, updateTriangle)),
       R.filter(R.propEq("active", true))
