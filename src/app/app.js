@@ -1,5 +1,4 @@
 import React from "react";
-// import bonsai from "bonsai";
 
 /** Used for React dev tools */
 window.React = React;
@@ -63,12 +62,12 @@ let App = React.createClass({
 
 });
 
-const appNode = document.getElementById("app");
-React.render(<App/>, appNode);
+// const appNode = document.getElementById("app");
+// React.render(<App/>, appNode);
 
-import galaxy from "./pixi/galaxy";
-import renderer from "./pixi/renderer";
-import state from "./pixi/state";
-
-renderer.init(state);
-galaxy.init(renderer, state);
+// import galaxy from "./pixi/galaxy";
+// import renderer from "./pixi/renderer";
+// import state from "./pixi/state";
+//
+// renderer.init(state);
+// galaxy.init(renderer, state);
