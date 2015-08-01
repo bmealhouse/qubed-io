@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "Source code for qubed.io",
   "scripts": {
-    "test": "./node_modules/.bin/karma start"
+    "test": "node_modules/.bin/snazzy && node_modules/.bin/karma start",
+    "start": "node_modules/.bin/snazzy && node_modules/.bin/webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "react": "0.13.3"
   },
   "devDependencies": {
+    "autoprefixer-loader": "2.0.0",
     "babel-core": "5.8.20",
     "babel-loader": "5.3.2",
     "chai": "3.2.0",
@@ -33,12 +35,32 @@
     "karma-osx-reporter": "0.2.0",
     "karma-phantomjs-launcher": "0.2.0",
     "karma-webpack": "1.7.0",
+    "less": "2.5.1",
+    "less-loader": "2.2.0",
     "mocha": "2.2.5",
     "node-libs-browser": "0.5.2",
     "phantomjs": "1.9.17",
+    "purifycss-loader": "1.0.0",
     "sinon": "1.15.4",
     "sinon-chai": "2.8.0",
+    "snazzy": "1.0.3",
+    "standard": "4.5.4",
+    "style-loader": "0.12.3",
     "webpack": "1.10.5",
     "webpack-dev-server": "1.10.1"
+  },
+  "standard": {
+    "global": [
+      "describe",
+      "beforeEach",
+      "afterEach",
+      "it",
+      "sinon",
+      "env",
+      "Path",
+      "stage",
+      "PIXI"
+    ],
+    "ignore": ["pixi.js"]
   }
 }

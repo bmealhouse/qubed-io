@@ -1,26 +1,26 @@
-import galaxy from "../../app/pixi/galaxy";
+import galaxy from '../../app/pixi/galaxy'
 
-describe("galaxySpec.js", () => {
-  let sandbox;
+describe('galaxySpec.js', () => {
+  let sandbox
 
-  beforeEach(() => { sandbox = sinon.sandbox.create(); });
-  afterEach(() => sandbox.restore());
+  beforeEach(() => { sandbox = sinon.sandbox.create() })
+  afterEach(() => sandbox.restore())
 
-  it("should init galaxy renderer", () => {
+  it('should init galaxy renderer', () => {
     // arrange
-    var stub = sandbox.stub(galaxy, "init");
+    var stub = sandbox.stub(galaxy, 'init')
 
     // act
-    galaxy.init();
+    galaxy.init()
 
     // assert
-    stub.should.have.been.called;
-  });
+    stub.should.have.been.called
+  })
 
-  it("should draw a particle", () => {
+  it('should draw a particle', () => {
     // arrange
     // act
     // assert
-  });
+  })
 
-});
+})
