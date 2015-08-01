@@ -1,12 +1,12 @@
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
-    browsers: ["PhantomJS"],
-    files: [{ pattern: "tests.webpack.js", watched: false }],
-    frameworks: ["mocha", "chai-sinon"],
-    osxReporter: { notificationMode: "failOnly" },
-    preprocessors: { "tests.webpack.js": ["webpack"] },
-    reporters: ["narrow", "osx"],
+    browsers: ['PhantomJS'],
+    files: [{ pattern: 'tests.webpack.js', watched: false }],
+    frameworks: ['mocha', 'chai-sinon'],
+    osxReporter: { notificationMode: 'failOnly' },
+    preprocessors: { 'tests.webpack.js': ['webpack'] },
+    reporters: ['narrow', 'osx'],
 
     // client: {
     //   mocha: {
@@ -27,7 +27,7 @@ module.exports = function(config) {
           exclude: /node_modules/,
           loader: 'babel-loader'
         }]
-      },
+      }
       // resolve: {
       //   extensions: ['', '.js']
       // }
@@ -39,5 +39,5 @@ module.exports = function(config) {
       noInfo: true
     }
 
-  });
-};
+  })
+}

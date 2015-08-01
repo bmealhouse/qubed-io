@@ -1,4 +1,4 @@
-const scale = window.devicePixelRatio || 1;
+const scale = window.devicePixelRatio || 1
 
 let state = {
   scale,
@@ -7,6 +7,6 @@ let state = {
   origin: { x: 285, y: 230 },
   triangles: [],
   ticks: 0
-};
+}
 
-export default state;
+export default state
