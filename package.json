@@ -35,7 +35,7 @@
     "karma-webpack": "1.7.0",
     "mocha": "2.2.5",
     "node-libs-browser": "0.5.2",
-    "ramda": "0.15.1",
+    "phantomjs": "1.9.17",
     "sinon": "1.15.4",
     "sinon-chai": "2.8.0",
     "webpack": "1.10.5",
