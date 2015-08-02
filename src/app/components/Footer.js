@@ -4,8 +4,8 @@ export default React.createClass({
 
   render () {
     return (
-      <header>
-      </header>
+      <footer>
+      </footer>
     )
   }
 
