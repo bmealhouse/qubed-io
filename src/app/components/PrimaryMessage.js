@@ -4,7 +4,7 @@ export default React.createClass({
 
   render () {
     return (
-      <section className='main primary-message'>
+      <section className='main container primary-message'>
         <div className='row'>
           <div className='col-tablet-6'>
             <div className='main-logo'>
@@ -29,7 +29,7 @@ export default React.createClass({
             </div>
           </div>
           <div className='col-tablet-6'>
-            <div className='content-box'>
+            <div className='content-box text-center'>
               <h1>Simple, elegant, &amp; functional JavaScript development. Done right the first time.</h1>
             </div>
           </div>
