@@ -1,6 +1,6 @@
 import React from 'react'
 import AppCanvas from './components/AppCanvas'
-require('./less/style.less')
+require('./less/main.less')
 
 // Used for React dev tools
 window.React = React

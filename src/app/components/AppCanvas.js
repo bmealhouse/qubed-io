@@ -1,16 +1,18 @@
 import React from 'react'
-import Header from './Header'
-import PrimaryMessage from './PrimaryMessage'
-import Footer from './Footer'
+import LogoSection from './LogoSection'
+import ContentSection from './ContentSection'
 
 export default React.createClass({
 
   render () {
     return (
       <div>
-        <Header/>
-        <PrimaryMessage/>
-        <Footer/>
+        <LogoSection/>
+        <ContentSection>Simple, elegant, &amp; functional JavaScript development. Done right the first time.</ContentSection>
+        <ContentSection>Simple, elegant, &amp; functional JavaScript development. Done right the first time.</ContentSection>
+        <ContentSection>Simple, elegant, &amp; functional JavaScript development. Done right the first time.</ContentSection>
+        <ContentSection>Simple, elegant, &amp; functional JavaScript development. Done right the first time.</ContentSection>
+        <ContentSection>Simple, elegant, &amp; functional JavaScript development. Done right the first time.</ContentSection>
       </div>
     )
   }
