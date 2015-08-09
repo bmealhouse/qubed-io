@@ -8,7 +8,7 @@ export default React.createClass({
     return (
       <div>
         <SvgLogo/>
-        <main>
+        <main className='container main-container'>
           <ContentSection>Simple, elegant, &amp; functional JavaScript development. Done right the first time.</ContentSection>
           <ContentSection>Simple, elegant, &amp; functional JavaScript development. Done right the first time.</ContentSection>
           <ContentSection>Simple, elegant, &amp; functional JavaScript development. Done right the first time.</ContentSection>

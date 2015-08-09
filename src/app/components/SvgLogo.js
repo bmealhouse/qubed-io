@@ -4,7 +4,7 @@ export default React.createClass({
 
   render () {
     return (
-      <svg version='1.1' viewBox='0 0 100 100'>
+      <svg className='logo' version='1.1' viewBox='0 0 100 100'>
         <g id='outline'>
           <polygon id='top' fill='#676767' points='50.7,11.6 50.7,11.6 25.4,26.2 32.5,30.3 50.7,19.7 50.7,19.7 69,30.3 76,26.2'/>
           <polygon id='bottom' fill='#4D4E4E' points='76,55.4 76,26.2 69,30.3 69,51.4 50.7,61.9 32.4,51.4 32.5,30.3 25.4,26.2 25.4,55.4 50.7,70 50.7,70 50.7,70 50.7,70 50.7,70 76,55.4 76,55.5 76,55.4 76,55.4'/>

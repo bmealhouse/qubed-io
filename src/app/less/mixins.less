@@ -2,6 +2,15 @@
 // Mixins
 // --------------------------------------------------
 
-.clear-margin() {
+.reset-margin() {
   margin: 0;
+}
+
+.reset-padding() {
+  padding: 0;
+}
+
+.reset-box-model() {
+  .reset-padding();
+  .reset-margin();
 }

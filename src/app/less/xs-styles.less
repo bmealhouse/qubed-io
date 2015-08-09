@@ -5,15 +5,32 @@
 @font-size-h1:  floor((@font-size-base * 1.5));
 
 canvas,
-#app svg {
+svg.logo {
   position: fixed;
 }
 
-.content-section {
+svg.logo {
+  .size(100%, 50%);
+}
+
+.main-container {
+  .reset-box-model();
+  // position: relative;
+  // margin-top: 200px;
+  // overflow: hidden;
+}
+
+.content-row {
+
+  .reset-margin();
 
   h1 {
-    .clear-margin();
+    .reset-margin();
     .opacity(0.9);
+  }
+
+  & > div {
+    .reset-padding();
   }
 
   .content-box {
