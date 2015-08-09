@@ -2,7 +2,7 @@ import R from 'ramda'
 import loop from './loop'
 import Triangle from './triangle'
 
-const tickInterval = 4
+const tickInterval = 10 // 4
 
 const galaxy = {
   init: (renderer, state) => {

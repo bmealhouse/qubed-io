@@ -1,3 +1,25 @@
 //
 // Xtra Small styles
 // --------------------------------------------------
+
+@font-size-h1:  floor((@font-size-base * 1.5));
+
+canvas,
+#app svg {
+  position: fixed;
+}
+
+.content-section {
+
+  h1 {
+    .clear-margin();
+    .opacity(0.9);
+  }
+
+  .content-box {
+    .bg-variant(rgba(40, 40, 40, 0.8));
+    padding: 2em;
+    margin: 22em 0;
+  }
+
+}

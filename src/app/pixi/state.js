@@ -1,10 +1,15 @@
 const scale = window.devicePixelRatio || 1
+const width = window.innerWidth / scale
+const height = window.innerHeight / scale
 
 let state = {
   scale,
-  width: window.innerWidth / scale,
-  height: 563 / scale,
-  origin: { x: 285, y: 230 },
+  width,
+  height,
+  origin: {
+    x: width / 1.3,
+    y: height
+  },
   triangles: [],
   ticks: 0
 }
