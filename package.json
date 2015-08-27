@@ -1,6 +1,6 @@
 {
   "name": "qubed-io",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Source code for qubed.io",
   "scripts": {
     "test": "node_modules/.bin/snazzy && node_modules/.bin/karma start",
@@ -41,8 +41,10 @@
     "less-loader": "2.2.0",
     "mocha": "2.2.5",
     "node-libs-browser": "0.5.2",
+    "node-sass": "3.2.0",
     "phantomjs": "1.9.18",
     "purifycss-loader": "1.0.0",
+    "sass-loader": "2.0.1",
     "sinon": "1.16.1",
     "sinon-chai": "2.8.0",
     "snazzy": "2.0.1",

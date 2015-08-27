@@ -11,7 +11,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.less$/, loader: 'style-loader!css-loader!autoprefixer-loader!less-loader' }
+      { test: /\.less$/, loader: 'style-loader!css-loader!autoprefixer-loader!less-loader' },
+      { test: /\.scss$/, loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader' }
     ]
   },
   plugins: [
