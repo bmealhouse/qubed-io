@@ -5,8 +5,8 @@ import Triangle from './triangle'
 const tickInterval = 10 // 4
 
 const galaxy = {
-  init: (renderer, state) => {
 
+  init: (renderer, state) => {
     const allocateTriangle = triangle => triangle.allocate(state)
 
     const createTriangle = () => {
@@ -42,7 +42,6 @@ const galaxy = {
     loop.init(updateState, renderState)
 
     function updateState () {
-
       if (!R.mathMod(state.ticks, tickInterval)) {
         generateTriangle(state.triangles)
       }

@@ -7,12 +7,11 @@ let frameBuffer = 0
 let lastTime = 0
 
 const loop = {
-  init: (updateState, renderState) => {
 
+  init: (updateState, renderState) => {
     frame()
 
     function frame () {
-
       // calculate the time that has elasped since the last frame
       const currentTime = now()
       let ticks = currentTime - lastTime
@@ -50,7 +49,6 @@ const loop = {
 
       raf(frame)
     }
-
   }
 }
 

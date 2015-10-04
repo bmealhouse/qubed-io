@@ -22,5 +22,4 @@ describe('galaxySpec.js', () => {
     // act
     // assert
   })
-
 })
