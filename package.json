@@ -1,7 +1,7 @@
 {
-  "name": "qubed-io",
+  "name": "qubed.io-animated",
   "version": "1.0.0",
-  "description": "Source code for qubed.io",
+  "description": "Source for https://qubed.io",
   "scripts": {
     "test": "node_modules/.bin/snazzy && node_modules/.bin/karma start",
     "start": "node_modules/.bin/snazzy && node_modules/.bin/webpack-dev-server"
@@ -69,5 +69,9 @@
       "/src/bootstrap4a/",
       "pixi.js"
     ]
+  },
+  "volta": {
+    "node": "14.18.1",
+    "yarn": "1.22.17"
   }
 }
