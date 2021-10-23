@@ -1,6 +1,6 @@
 # qubed.io-animated
 
-Source for http://qubed.io
+Source for https://qubed.io
 
 ```sh
 yarn && yarn start
